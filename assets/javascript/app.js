@@ -39,7 +39,7 @@ function generateQuestion () {
     for (i = 0 ; i < questionArr[roundCount].answerArr.length; i++) {
 
         var answerButton = $("<button type='button' class='btn-light m-2'>" + questionArr[roundCount].answerArr[i] +"</button><"); 
-        answerButton.attr("value", [i]);
+        answerButton.attr("data-value", questionArr[roundCount].answerArr[i]);
         answerText.append(answerButton);  
     };
 
@@ -58,8 +58,8 @@ $("#startButton").on("click", generateQuestion);
 
 $("#displayText").on("click", ".btn-light", function(event) {
     event.preventDefault();
-    var buttonValue = $(this).attr("value");
-    buttonValue = parseInt(buttonValue);
+    var buttonValue = $(this).attr("data-value");
+    
     console.log("Button value is: " + buttonValue);
 
 });
