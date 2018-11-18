@@ -1,0 +1,27 @@
+body{
+    font-family: 'RailwayRegular'; 
+    background-image: url("../images/underground.gif");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    
+}
+
+.headerRow {
+    background: rgb(255,255,255, .8);
+    border: solid 10px pink;
+    border-radius: 25px;
+
+}
+
+.container{
+    border-radius: 25px;
+    
+}
+
+.content{
+    background: rgb(255,255,255, .9);
+    border: solid 10px pink;
+    border-radius: 25px;
+    
+}

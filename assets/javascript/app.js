@@ -63,7 +63,7 @@ function Question () {
 
         Timer();
 
-        displayText.append("<h2>" + questionArr[roundCount].question + "</h2>");
+        displayText.append("<h2><strong>" + questionArr[roundCount].question + "</strong></h2>");
         
         var answerText = $("<h3>");
 
