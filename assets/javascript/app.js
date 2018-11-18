@@ -1,6 +1,7 @@
+
 // VARIABLES
-
-
+var intervalID;
+var clock = 11;
 
 var correct = 0;
 var incorrect = 0;
@@ -25,41 +26,64 @@ var incorrect = 0;
 
 var roundCount = (questionArr.length - 1);
 console.log ("Round count is: " + roundCount);        
-
+ 
 // FUNCTIONS
-
 
 // FUNCTION 1
 
+function Timer() {
+    
+    // clearInterval (intervalId);
+    intervalId = setInterval(decrement, 1000);
+}
+
+// FUNCTION 2
+
+function decrement() {
+    clock--;
+    $("#clockText").html(clock);
+    
+    if (clock === -1) {
+    
+      alert("Time Up!");
+      Incorrect();
+      
+    }
+}
+
+// FUNCTION 3
+ 
 function Question () {
 
     if (roundCount < 0){
         Reset ();
-    }else{
+    } else{
+        $("#displayText").empty ();
+        displayText = $("<div>");
 
+        Timer();
 
-                $("#displayText").empty ();
-                displayText = $("<div>");
+        displayText.append("<h2>" + questionArr[roundCount].question + "</h2>");
+        
+        var answerText = $("<h3>");
 
-                displayText.append("<h2>" + questionArr[roundCount].question + "</h2>");
-                var answerText = $("<h3>");
+        for (i = 0 ; i < questionArr[roundCount].answerArr.length; i++) {
 
-                for (i = 0 ; i < questionArr[roundCount].answerArr.length; i++) {
+            var answerButton = $("<button type='button' class='btn-light m-2'>" + questionArr[roundCount].answerArr[i] +"</button><"); 
+            answerButton.attr("data-value", questionArr[roundCount].answerArr[i]);
+            answerText.append(answerButton);  
+        };
 
-                    var answerButton = $("<button type='button' class='btn-light m-2'>" + questionArr[roundCount].answerArr[i] +"</button><"); 
-                    answerButton.attr("data-value", questionArr[roundCount].answerArr[i]);
-                    answerText.append(answerButton);  
-                };
-
-                $("#displayText").append(displayText);
-                $("#displayText").append(answerText);
+        $("#displayText").append(displayText);
+        $("#displayText").append(answerText);
     };
 };
 
-// FUNCTION 2
+// FUNCTION 3
 
 function Correct () {
 
+    $("#clockText").empty ();
     $("#displayText").empty ();
     displayText = $("<div>");
 
@@ -72,12 +96,15 @@ function Correct () {
     roundCount--;
     console.log ("Round count is: " + roundCount);
     setTimeout(Question, 1000 * 3);
+    clearInterval (intervalId);
+    clock = 11;
 };
 
-// FUNCTION 3
+// FUNCTION 4
 
 function Incorrect () {
 
+    $("#clockText").empty ();
     $("#displayText").empty ();
     displayText = $("<div>");
 
@@ -88,14 +115,18 @@ function Incorrect () {
 
     incorrect++;
     roundCount--;
+    
     console.log ("Round count is: " + roundCount);
     setTimeout(Question, 1000 * 3);
+    clearInterval (intervalId);
+    clock = 11;
 };
 
-// FUNCTION 3
+// FUNCTION 5
 
 function Reset () {
 
+    $("#clockText").empty ();
     $("#displayText").empty ();
     displayText = $("<div>");
 
@@ -110,6 +141,8 @@ function Reset () {
     incorrect = 0;
 
     setTimeout(Question, 1000 * 3);
+    clearInterval (intervalId);
+    clock = 11;
 };
 
 
