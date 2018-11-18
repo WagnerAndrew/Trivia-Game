@@ -33,8 +33,6 @@ var roundCount = (questionArr.length - 1);
 
 // FUNCTION 1
 function Timer() {
-
-    // clearInterval (intervalId);
     intervalId = setInterval(decrement, 1000);
 }
 

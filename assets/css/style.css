@@ -1,25 +1,16 @@
-.clearfix {
-    overflow: auto;
-}
 
 body{
     font-family: 'RailwayRegular'; 
     background-image: url("../images/underground.gif");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center; 
-    
-}
-.headerRow {
-    height: 150px;
+    background-position: center;     
 }
 
-.headerRow, .content {
+.header, .clock, .content {
     background: #ffffff;
     border: solid 10px pink;
-    border-radius: 25px;
-    
-
+    border-radius: 25px;   
 }
 
 button {
