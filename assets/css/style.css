@@ -1,3 +1,7 @@
+.clearfix {
+    overflow: auto;
+}
+
 body{
     font-family: 'RailwayRegular'; 
     background-image: url("../images/underground.gif");
