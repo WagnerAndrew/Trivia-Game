@@ -7,23 +7,13 @@ body{
     
 }
 
-.headerRow {
-    /* background: rgb(255,255,255, .8); */
+.headerRow, .content {
     background: #ffffff;
     border: solid 10px pink;
     border-radius: 25px;
 
 }
 
-.container{
-    border-radius: 25px;
-    
-}
-
-.content{
-    /* background: rgb(255,255,255, .9); */
+button {
     background: #ffffff;
-    border: solid 10px pink;
-    border-radius: 25px;
-    
 }
