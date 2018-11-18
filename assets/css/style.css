@@ -10,11 +10,15 @@ body{
     background-position: center; 
     
 }
+.headerRow {
+    height: 150px;
+}
 
 .headerRow, .content {
     background: #ffffff;
     border: solid 10px pink;
     border-radius: 25px;
+    
 
 }
 
