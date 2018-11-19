@@ -11,19 +11,19 @@ var questionArr = [
         question: "What is the composer Vivaldi's first name?",
         answerArr: ["Maricio", "Pietro", "Antonio", "Laurice"],
         correctAnswer: "Antonio",
-        image: '<iframe src="https://giphy.com/embed/5B3YANolB1LFK" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
+        image: '<iframe src="https://giphy.com/embed/5B3YANolB1LFK" width="auto" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
     },
     {
         question: "Who made the highly rated 1959 jazz album 'Kind Of Blue?'",
         answerArr: ["John Coltrane", "Miles Davis", "Ornette Coleman", "Duke Ellington"],
         correctAnswer: "Miles Davis",
-        image: '<iframe src="https://giphy.com/embed/l2JdYt9xSuzWW2Aus" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
+        image: '<iframe src="https://giphy.com/embed/l2JdYt9xSuzWW2Aus" width="auto" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
     },
     {
         question: "In which American city was Elvis discovered in?",
         answerArr: ["Nashville", "Macom", "Charleston", "Memphis"],
         correctAnswer: "Memphis",
-        image: '<iframe src="https://giphy.com/embed/PVJ29hwRF1DsQ" width="480" height="332" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
+        image: '<iframe src="https://giphy.com/embed/PVJ29hwRF1DsQ" width="auto" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
     },
 ];
 
