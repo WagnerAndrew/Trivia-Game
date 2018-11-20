@@ -4,15 +4,12 @@ body{
     background-image: url("../images/underground.gif");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center;     
+    background-position: center;   
 }
 
-.header, .clock, .content {
+
+.header, .content {
     background: #ffffff;
     border: solid 10px pink;
     border-radius: 25px;   
-}
-
-button {
-    background: #ffffff;
 }

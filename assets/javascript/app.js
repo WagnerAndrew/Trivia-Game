@@ -11,19 +11,19 @@ var questionArr = [
         question: "What is the composer Vivaldi's first name?",
         answerArr: ["Maricio", "Pietro", "Antonio", "Laurice"],
         correctAnswer: "Antonio",
-        image: '<iframe src="https://giphy.com/embed/5B3YANolB1LFK" width="auto" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
+        image: '<iframe src="https://giphy.com/embed/5B3YANolB1LFK" width="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
     },
     {
         question: "Who made the highly rated 1959 jazz album 'Kind Of Blue?'",
         answerArr: ["John Coltrane", "Miles Davis", "Ornette Coleman", "Duke Ellington"],
         correctAnswer: "Miles Davis",
-        image: '<iframe src="https://giphy.com/embed/l2JdYt9xSuzWW2Aus" width="auto" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
+        image: '<iframe src="https://giphy.com/embed/l2JdYt9xSuzWW2Aus" width="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
     },
     {
         question: "In which American city was Elvis discovered in?",
         answerArr: ["Nashville", "Macom", "Charleston", "Memphis"],
         correctAnswer: "Memphis",
-        image: '<iframe src="https://giphy.com/embed/PVJ29hwRF1DsQ" width="auto" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
+        image: '<iframe src="https://giphy.com/embed/PVJ29hwRF1DsQ" width="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>'
     },
 ];
 
@@ -42,8 +42,7 @@ function decrement() {
     $("#clockText").html(clock);
 
     if (clock === -1) {
-        alert("Time Up!");
-        Incorrect();
+        timeOut();
     }
 }
 
@@ -58,9 +57,9 @@ function Question() {
 
         Timer();
 
-        displayText.append("<h2><strong>" + questionArr[roundCount].question + "</strong></h2>");
+        displayText.append("<h3><strong>" + questionArr[roundCount].question + "</strong></h3>");
 
-        var answerText = $("<h3>");
+        var answerText = $("<h4>");
 
         for (i = 0; i < questionArr[roundCount].answerArr.length; i++) {
 
@@ -81,9 +80,9 @@ function Correct() {
     $("#displayText").empty();
     displayText = $("<div>");
 
-    displayText.append("<h2>" + "You got it!" + "</h2>");
-    displayText.append("<h4>" + questionArr[roundCount].question + "</h4>");
-    displayText.append("<h2><strong>" + questionArr[roundCount].correctAnswer + "</strong></h2>");
+    displayText.append("<h3>" + "You got it!" + "</h3>");
+    displayText.append("<h5>" + questionArr[roundCount].question + "</h5>");
+    displayText.append("<h3><strong>" + questionArr[roundCount].correctAnswer + "</strong></h3>");
     displayText.append(questionArr[roundCount].image);
     
     $("#displayText").append(displayText);
@@ -103,9 +102,9 @@ function Incorrect() {
     $("#displayText").empty();
     displayText = $("<div>");
 
-    displayText.append("<h2>" + "Sorry! The correct answer was:" + "</h2>");
-    displayText.append("<h4>" + questionArr[roundCount].question + "</h4>");
-    displayText.append("<h2><strong>" + questionArr[roundCount].correctAnswer + "</strong></h2>");
+    displayText.append("<h3>" + "Sorry! The correct answer was:" + "</h3>");
+    displayText.append("<h5>" + questionArr[roundCount].question + "</h5>");
+    displayText.append("<h3><strong>" + questionArr[roundCount].correctAnswer + "</strong></h3>");
     displayText.append(questionArr[roundCount].image);
 
     $("#displayText").append(displayText);
@@ -120,6 +119,29 @@ function Incorrect() {
 };
 
 // FUNCTION 6
+function timeOut() {
+
+    $("#clockText").empty();
+    $("#displayText").empty();
+    displayText = $("<div>");
+
+    displayText.append("<h3>" + "You ran out of time!" + "</h3>");
+    displayText.append("<h3>" + "The correct answer was:" + "</h3>");
+    displayText.append("<h5>" + questionArr[roundCount].question + "</h5>");
+    displayText.append("<h3><strong>" + questionArr[roundCount].correctAnswer + "</strong></h3>");
+    displayText.append(questionArr[roundCount].image);
+
+    $("#displayText").append(displayText);
+
+    incorrect++;
+    roundCount--;
+
+    setTimeout(Question, 1000 * 3);
+    clearInterval(intervalId);
+    clock = 11;
+};
+
+// FUNCTION 7
 
 function Reset() {
 
@@ -127,8 +149,8 @@ function Reset() {
     $("#displayText").empty();
     displayText = $("<div>");
 
-    displayText.append("<h2>" + "Game Over" + "</h2>");
-    displayText.append("<h3>" + "You got " + correct + " right & you missed " + incorrect + " !" + "</h3>");
+    displayText.append("<h3>" + "Game Over" + "</h3>");
+    displayText.append("<h4>" + "You got " + correct + " right & you missed " + incorrect + " !" + "</h4>");
 
     $("#displayText").append(displayText);
 
@@ -136,9 +158,25 @@ function Reset() {
     correct = 0;
     incorrect = 0;
 
-    setTimeout(Question, 1000 * 3);
+    var resetButton = $("<button type='button' class='btn btn-outline-primary btn-lg'>" + "Press To Play Again" + "</button><");
+    resetButton.attr("data-value", "resetButton");
+    displayText.append(resetButton);
+
     clearInterval(intervalId);
     clock = 11;
+
+
+    $("#displayText").on("click", ".btn-outline-primary", function (event) {
+        event.preventDefault();
+        
+        Question ();
+
+    });
+
+
+
+
+
 };
 
 // PROCESS
@@ -147,7 +185,6 @@ $("#startButton").on("click", Question);
 
 $("#displayText").on("click", ".btn-light", function (event) {
     event.preventDefault();
-    var buttonValue = $(this).attr("data-value");
 
     if ($(this).attr("data-value") === questionArr[roundCount].correctAnswer) {
         Correct();

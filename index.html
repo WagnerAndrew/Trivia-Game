@@ -29,18 +29,29 @@
 <body>
 
 <div class="container p-2 text-center">
+
     <div class="row m-2 clearfix header">
         <div class="col">
-            <h1 class="display-3">MUSIC TRIVIA GAME</h1>
-            <h1 id="clockText"></h1>
+            <div class="display-3 clearfix">MUSIC TRIVIA GAME</div>
+            <!-- <div class="display-4" id="clockText"></div> -->
         </div>
     </div>
 
-    <div class="row m-2"> 
-        <div id="displayText" class="col p-3 clearfix content">
+    <div class="row m-2 content clearfix">
+
+        <div class="col-2 p-1"></div>
+
+
+        <div id="displayText" class="col-8 p-1">
             <button type="button" class="btn btn-outline-primary btn-lg" id="startButton">Press To Play</button>
         </div>
+
+
+        <div class="col-2 display-4 p-1 clearfix" id="clockText"></div>
+
+
     </div>
+
 </div>
 
 <script src="assets/javascript/app.js"></script>
